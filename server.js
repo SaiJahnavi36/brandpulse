@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'final sentiment', 'public'))); // serves your HTML
+app.use(express.static('public')); // serves your HTML
 
 app.post('/api/chat', async (req, res) => {
   try {
@@ -35,7 +35,7 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
- res.sendFile(path.join(__dirname, 'final sentiment', 'public', 'index.html'));
+ res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = process.env.PORT || 3000;
